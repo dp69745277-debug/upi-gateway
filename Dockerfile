@@ -22,8 +22,8 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 RUN npm install && npm run build
 
-# Permissions for Laravel storage and bootstrap cache
-RUN chmod -R 777 storage bootstrap/cache
+# Give full permissions for installer wizard to write .env and storage
+RUN chmod -R 777 /app
 
 EXPOSE 8000
 
